@@ -11,12 +11,12 @@ export class AppComponent implements OnInit {
     {
       name: 'Start',
       routerLink: 'start',
-      icon: 'menu'
+      icon: 'home'
     },
     {
-      name: 'ding 2',
-      routerLink: 'someLink',
-      icon: 'menu'
+      name: 'next',
+      routerLink: 'next',
+      icon: 'android'
     }
   ];
   public constructor(

@@ -1,49 +1,68 @@
+@import "./theme.scss";
+
 .example-container {
-    position: absolute;
-    top: 63px;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-  }
-  
-  .example-sidenav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    background: rgb(93, 112, 131);
-  }
-  
-  .example-header {
-    background-color: #6200EE;
-    position: fixed;
-    top: 0;
-    left: -25px;
-    right: 0;
-  }
+  position: absolute;
+  top: 63px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  background: $background-block;
+  border: none;
+  box-shadow: $shadow;
+}
+
+.example-header {
+  background: radial-gradient(at top, lighten($primary, 20%), $primary);
+  position: fixed;
+  top: 0;
+  right: 0;
+}
 .hamburger {
-    background: 0 0;
-    color: white;
+  background: 0 0;
+  color: white;
 }
 .title {
-    color: white;
+  color: white;
 }
 .menu-item {
-    width: 100%;
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-  }
-  .menu-item-text {
-      color: white
-  }
-  .menu-item-icon {
-      padding: 8px;
-  }
-  .list-item:hover {
-    background-color: rgb(71, 82, 94);
-    cursor: pointer;
-  }
-  .selected {
-    background-color: rgb(65, 74, 83);
-  }
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.menu-item-icon {
+  padding: 8px;
+}
+
+.menu-item-text{
+  margin-top: 11px;
+}
+.list-item:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+.content {
+  padding: 25px;
+}
+.dot {
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background-color: $primary;
+  border-radius: 50%;
+  display: inline-block;
+  display: none;
+}
+.selected span:last-child {
+  display: initial;
+}
