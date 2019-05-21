@@ -1,0 +1,49 @@
+.example-container {
+    position: absolute;
+    top: 63px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+  }
+  
+  .example-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    background: rgb(93, 112, 131);
+  }
+  
+  .example-header {
+    background-color: #6200EE;
+    position: fixed;
+    top: 0;
+    left: -25px;
+    right: 0;
+  }
+.hamburger {
+    background: 0 0;
+    color: white;
+}
+.title {
+    color: white;
+}
+.menu-item {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+  }
+  .menu-item-text {
+      color: white
+  }
+  .menu-item-icon {
+      padding: 8px;
+  }
+  .list-item:hover {
+    background-color: rgb(71, 82, 94);
+    cursor: pointer;
+  }
+  .selected {
+    background-color: rgb(65, 74, 83);
+  }
