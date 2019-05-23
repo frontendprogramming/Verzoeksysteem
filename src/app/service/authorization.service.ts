@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class AuthorizationService {
 
   public loginChange: Subject<boolean> = new Subject<boolean>();
-  public isLoggedIn = false;
+  public isLoggedIn = true;
 
   constructor() {
    }
