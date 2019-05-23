@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    }
+}
 mat-card {
     padding: 5px;
     font-weight: bold;
@@ -29,3 +29,18 @@ mat-card {
     text-align: center;
     justify-content: center;
 }
+.register-link {
+    font-size: 15px;
+    font-weight: normal;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    cursor: pointer;
+    color: gray;
+}
+.register-container {
+    display: flex;
+    flex-direction: column;
+  }

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-  public isLoggedIn: boolean;
 
   routes = [
     {
@@ -26,17 +25,13 @@ export class AppComponent implements OnInit {
   public constructor(
     private authService: AuthorizationService
   ) {
-    this.isLoggedIn = this.authService.isLoggedIn;
-    this.authService.loginChange.subscribe(data => {
-      this.isLoggedIn = data;
-    });
   }
 
   ngOnInit() {
   }
 
   logOff() {
-    this.authService.logOut();
+    this.authService.logout();
   }
 
 }

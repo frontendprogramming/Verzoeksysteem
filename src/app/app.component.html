@@ -1,5 +1,5 @@
-<app-login *ngIf="!isLoggedIn"></app-login>
-<ng-container *ngIf="isLoggedIn">
+<app-login *ngIf="!authService.isLoggedIn"></app-login>
+<ng-container *ngIf="authService.isLoggedIn">
   <mat-toolbar class="example-header">
     <button (click)="sidenav.toggle()" class="hamburger mat-button" mat-button=""><span class="mat-button-wrapper">
         <mat-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true">menu</mat-icon>
