@@ -10,25 +10,32 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { NextComponent } from './content/next/next.component';
-
+import { LoginComponent } from './content/login/login.component';
+import { AuthorizationService } from './service/authorization.service';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     NextComponent,
+    LoginComponent
   ],
   imports: [
     MaterialModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     AngularFontAwesomeModule,
     RouterModule,
+    ToastrModule.forRoot()
   ],
   providers: [
-    RouterModule
+    RouterModule,
+    AuthorizationService
   ],
   bootstrap: [AppComponent]
 })
