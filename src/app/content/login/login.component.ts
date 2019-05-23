@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthorizationService } from 'src/app/service/authorization.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
     if (!this.authService.loginWithEmailAndPassword(this.email, this.password)) {
       this.toastrService.error('try logging in with "test" and "test"', 'Login Failed.');
     }
+  }
+  @HostListener('document:keyup.Enter')
+  onKeyUp() {
+    this.login();
   }
 
 }
