@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
 
-  public user: firebase.User;
+  private user: firebase.User;
 
   constructor(
     private afAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
   ) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -28,6 +30,10 @@ export class AuthorizationService {
     const user = JSON.parse(localStorage.getItem('user'));
     return user !== null;
   }
+  get currentUser(): any {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
   async  login(email: string, password: string) {
     try {
       await this.afAuth.auth.signInWithEmailAndPassword(email, password);
@@ -39,15 +45,19 @@ export class AuthorizationService {
   async logout() {
     await this.afAuth.auth.signOut();
     localStorage.removeItem('user');
+    this.toastrService.info('logged off succesfully.');
   }
-
 
   doRegister(value) {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then(res => {
           resolve(res);
-        }, err => reject(err));
+          this.toastrService.success('Succes!');
+        }, err => {
+          this.toastrService.error(err.message, 'Error');
+          reject(err);
+        });
     });
   }
 }

@@ -18,12 +18,14 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { UserProfileSelectListComponent } from './content/user-profile-select-list/user-profile-select-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     NextComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileSelectListComponent
   ],
   imports: [
     MaterialModule,

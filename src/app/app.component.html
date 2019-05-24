@@ -9,12 +9,7 @@
     </button>
     <p class="title">Verzoeksysteem</p>
 
-    <button (click)="logOff()" class="log-off-icon mat-button" mat-button=""><span class="mat-button-wrapper">
-      <mat-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true">highlight_off</mat-icon>
-    </span>
-    <div class="mat-button-ripple mat-ripple" matripple=""></div>
-    <div class="mat-button-focus-overlay"></div>
-  </button>
+    <app-user-profile-select-list class="log-off-icon mat-button"></app-user-profile-select-list>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-container">

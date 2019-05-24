@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthorizationService } from 'src/app/service/authorization.service';
-import { ToastrService } from 'ngx-toastr';
 import { FormGroup } from '@angular/forms';
 import { registerForm, loginForm } from '../register/forms';
 
@@ -15,8 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = loginForm;
 
   constructor(
-    private authService: AuthorizationService,
-    private toastrService: ToastrService
+    private authService: AuthorizationService
   ) {
    }
 
@@ -33,10 +31,10 @@ export class LoginComponent implements OnInit {
   tryRegister(registerationFormValues) {
     this.authService.doRegister(registerationFormValues)
     .then(res => {
-      this.toastrService.success('Succes!');
+      // login in user automatically, or not?
       this.authService.login(registerationFormValues.email, registerationFormValues.password);
     }, err => {
-      this.toastrService.error(err.message, 'Error');
+      // can add aditional logic here no failure.
     });
   }
 

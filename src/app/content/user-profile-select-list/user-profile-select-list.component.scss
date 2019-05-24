@@ -1,0 +1,35 @@
+.profile-list {
+    position: relative;
+    border: none;
+    text-align:center;
+    margin-top: 5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:40px;
+    background: inherit;
+    color: white;
+}
+
+.mat-menu-item {
+    font-size: 14px;
+    padding: 0 6px;
+    height: 30px;
+    line-height: 30px;
+}
+.profile-dropdown {
+    width: 150px;
+}
+.profile-button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+  }
+  .profile-button-icon {
+    padding: 8px;
+  }
+  
+  .profile-button-text{
+    margin-top: 11px;
+  }

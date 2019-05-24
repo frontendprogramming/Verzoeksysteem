@@ -1,0 +1,19 @@
+<button [matMenuTriggerFor]="profileMenu" class="profile-list">
+  <div class="profile-button">
+    <span class="mat-button-wrapper">
+      <mat-icon class="profile-button-icon">account_circle</mat-icon>
+    </span>
+    <p class="profile-button-text">{{ authService.currentUser.email }}</p>
+    <span class="mat-button-wrapper">
+      <mat-icon class="profile-button-icon">expand_more</mat-icon>
+    </span>
+  </div>
+</button>
+<mat-menu #profileMenu="matMenu" [overlapTrigger]="false" xpPsition="before" yPosition="below">
+  <div class="profile-dropdown">
+    <button (click)="logOff()" mat-menu-item>
+      <mat-icon matPrefix>highlight_off</mat-icon>
+      Log off
+    </button>
+  </div>
+</mat-menu>
