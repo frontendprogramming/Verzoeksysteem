@@ -66,6 +66,9 @@
 .selected span:last-child {
   display: initial;
 }
+.selected {
+  background-color: dodgerblue;
+}
 .log-off-icon {
   right: 25px;
   position: absolute;

@@ -20,6 +20,11 @@ export class AppComponent implements OnInit {
       name: 'next',
       routerLink: 'next',
       icon: 'android'
+    },
+    {
+      name: 'uitgeleende items',
+      routerLink: 'loaned',
+      icon: 'calendar_today'
     }
   ];
   public constructor(

@@ -19,14 +19,19 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { UserProfileSelectListComponent } from './content/user-profile-select-list/user-profile-select-list.component';
+import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-items-list.component';
+import { LoanedItemComponent } from './content/loaned-item/loaned-item.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     NextComponent,
     LoginComponent,
-    UserProfileSelectListComponent
+    UserProfileSelectListComponent,
+    LoanedItemsListComponent,
+    LoanedItemComponent
   ],
   imports: [
     MaterialModule,
