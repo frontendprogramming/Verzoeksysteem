@@ -5,6 +5,7 @@ import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-ite
 import { IsStudentGuard } from './guards/student.guard';
 import { IsTeacherGuard } from './guards/teacher.guard';
 import { IsAdminGuard } from './guards/admin-guard';
+import { RequestListComponent } from './content/request-list/request-list.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,11 @@ export const routes: Routes = [
     path: 'loaned',
     canActivate: [IsAdminGuard],
     component: LoanedItemsListComponent
+  },
+  {
+    path: 'request',
+    canActivate: [IsAdminGuard],
+    component: RequestListComponent
   },
   {
     path: '**',
