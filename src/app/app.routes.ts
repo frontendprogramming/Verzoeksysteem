@@ -19,6 +19,7 @@ export const routes: Routes = [
   },
   {
     path: 'loaned',
+    // TODO: only admin should have access.
     canActivate: [IsAdminGuard],
     component: LoanedItemsListComponent
   },
