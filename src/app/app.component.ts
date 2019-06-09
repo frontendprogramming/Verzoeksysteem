@@ -14,22 +14,26 @@ export class AppComponent implements OnInit {
     {
       name: 'Start',
       routerLink: 'start',
-      icon: 'home'
+      icon: 'home',
+      role: 'student'
     },
     {
       name: 'next',
       routerLink: 'next',
-      icon: 'android'
+      icon: 'android',
+      role: 'docent'
     },
     {
       name: 'uitgeleende items',
       routerLink: 'loaned',
-      icon: 'calendar_today'
+      icon: 'calendar_today',
+      role: 'student'
     },
     {
       name: 'aanvragen',
       routerLink: 'adminrequest',
-      icon: 'record_voice_over'
+      icon: 'record_voice_over',
+      role: 'beheerder'
     }
   ];
   public constructor(
@@ -42,6 +46,26 @@ export class AppComponent implements OnInit {
 
   logOff() {
     this.authService.logout();
+  }
+  isVisible(role: string) {
+    if (this.authService.currentUser.role === 'beheerder') {
+      return true;
+    }
+    if (this.authService.currentUser.role === 'docent') {
+      if (role === 'docent' || role === 'student') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    if (this.authService.currentUser.role === 'student') {
+      if (role === 'student') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return false;
   }
 
 }
