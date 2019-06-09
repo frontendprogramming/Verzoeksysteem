@@ -8,6 +8,5 @@ export const registerForm = new FormGroup({
 
 export const loginForm = new FormGroup({
     email: new FormControl(),
-    password: new FormControl(),
-    name: new FormControl()
+    password: new FormControl()
 });
