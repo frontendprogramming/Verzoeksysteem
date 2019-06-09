@@ -27,7 +27,7 @@ export class RequestItemComponent implements OnInit {
 
   }
   declineRequest(request: Item) {
-    this.db.database.ref(`loaned-items/${request.id}`).update({
+    this.db.database.ref(`items/${request.id}`).update({
       status: RequestStatus.Available
     }, callback => {
       this.stateChnge.emit(false);

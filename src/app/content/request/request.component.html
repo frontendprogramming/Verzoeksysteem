@@ -1,6 +1,5 @@
 <div *ngIf='items.length !== 0'>
   <mat-list cols=1 *ngFor="let i of items">
-    <app-request-item (stateChnge)="refreshItems($event)" [request]='i'></app-request-item>
     <mat-card>
       <div class='container'>
         <div class='cell-one'>
@@ -16,7 +15,7 @@
             <h4 class='request-center'>Moet terug op: {{i.endDate}}</h4>
           </ng-template>
           <ng-template #elseBlockG [ngIf]="i.status === 'waitingForApproval'" else elseBlock>
-            <button mat-raised-button color="warn" (click)='cancelRequest(request)'>Annuleren</button>
+            <button mat-raised-button color="warn" (click)='cancelRequest(i)'>Annuleren</button>
           </ng-template>
           <ng-template #elseBlock>
           </ng-template>
