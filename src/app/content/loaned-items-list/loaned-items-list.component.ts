@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoanedItem } from 'src/app/models/loaned-item.model';
 import { ItemsService } from 'src/app/service/item.service';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'app-loaned-items-list',
@@ -9,7 +9,7 @@ import { ItemsService } from 'src/app/service/item.service';
 })
 export class LoanedItemsListComponent implements OnInit {
 
-  public items: LoanedItem[];
+  public items: Item[];
   constructor(
     private itemService: ItemsService
   ) {
