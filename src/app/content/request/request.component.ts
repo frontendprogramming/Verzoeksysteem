@@ -29,7 +29,7 @@ export class RequestComponent implements OnInit {
   
   cancelRequest(request:Item) {
     this.db.database.ref(`items/${request.id}`).update({
-      status: RequestStatus.Canceled
+      status: RequestStatus.Available
     }, callback => {
       this.stateChnge.emit(false);
       this.refreshItems();
