@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LoanedItem } from 'src/app/models/loaned-item.model';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'app-loaned-item',
@@ -8,7 +8,7 @@ import { LoanedItem } from 'src/app/models/loaned-item.model';
 })
 export class LoanedItemComponent implements OnInit {
 
-  @Input() loanedItem: LoanedItem;
+  @Input() loanedItem: Item;
 
   constructor() { }
 

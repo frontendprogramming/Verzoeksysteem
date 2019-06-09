@@ -1,3 +1,7 @@
 export enum RequestStatus {
-    waitingForApproval = 'waitingForApproval', Approved = 'Approved', Rejected = 'Rejected', Canceled = 'Canceled'
+    Available = 'Available',
+    waitingForApproval = 'waitingForApproval',
+    Approved = 'Approved',
+    Reserved = 'Reserved',
+    Canceled = 'Canceled'
 }
