@@ -37,5 +37,6 @@ export class RequestComponent implements OnInit {
   }
   refreshItems() {
     this.itemService.refreshItems();
+    window.location.reload();
   }
 }
