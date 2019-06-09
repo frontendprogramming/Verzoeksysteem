@@ -3,6 +3,7 @@ import { ItemsService } from 'src/app/service/item.service';
 import { LoanedItem } from 'src/app/models/loaned-item.model';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { RequestStatus } from 'src/app/models/request-status.model';
+import { AuthorizationService } from 'src/app/service/authorization.service';
 
 @Component({
   selector: 'app-request',
@@ -13,14 +14,17 @@ import { RequestStatus } from 'src/app/models/request-status.model';
 export class RequestComponent implements OnInit {
 
   public items: LoanedItem[] = [];
+  public rol: string;
   @Output() stateChnge: EventEmitter<boolean> = new EventEmitter();
   
   constructor(
-    private itemService: ItemsService) {}
+    private itemService: ItemsService,
+    private authorizationService: AuthorizationService) {}
     private db: AngularFireDatabase
 
   ngOnInit() {
     this.items = this.itemService.myRequests;
+    this.rol = this.authorizationService.currentUser.role;
   }
   
   cancelRequest(request: LoanedItem) {

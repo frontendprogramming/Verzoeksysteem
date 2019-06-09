@@ -1,62 +1,37 @@
-<!-- <mat-grid-list cols=1 *ngFor="let i of contacts" > 
-  <mat-card>
-    <mat-grid-list cols=3 rowHeight="120px">
-      <mat-grid-tile class=requestbody [colspan]=1>
-        <div class=item-info>
-          <h2 class=title>{{i.name}}</h2>
-          <div class=desc>{{i.desc}}</div>
-        </div>
-      </mat-grid-tile>
-
-      <mat-grid-tile class=requestbody [colspan]=1>
-        <div class=item-action>
-          {{i.date}}
-        </div>
-      </mat-grid-tile>
-
-      <mat-grid-tile class=requestbody [colspan]=1>
-        <div class=item-action>
-          <h3>{{i.status}}</h3>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-card>
-  <br>
- 
-</mat -grid-list> -->
 <div *ngIf='items.length !== 0'>
-<mat-list cols=1 *ngFor="let i of items">
-  <mat-card>
-    <div class='container'>
-      <div class='cell-one'>
-        <p class='title'>
-          {{i.name}}
-          <p>
-            {{i.desc}}
-          </p>
-      </div>
-      <div class='cell-two'>
-        
-        <ng-template [ngIf]="i.status === 'Approved'" else elseBlockG>
-          <h4 class='request-center'>Moet terug op: {{i.endDate}}</h4>
-        </ng-template>
-        <ng-template #elseBlockG [ngIf]="i.status === 'waitingForApproval'" else elseBlock>
-            <button mat-raised-button color="warn" (click)='cancelRequest(request)'>Annuleren</button>
-        </ng-template>
-        <ng-template #elseBlock>
+  <mat-list cols=1 *ngFor="let i of items">
+    <app-request-item (stateChnge)="refreshItems($event)" [request]='i'></app-request-item>
+    <mat-card>
+      <div class='container'>
+        <div class='cell-one'>
+          <p class='title'>
+            {{i.name}}
+            <p>
+              {{i.desc}}
+            </p>
+        </div>
+        <div class='cell-two'>
+
+          <ng-template [ngIf]="i.status === 'Approved'" else elseBlockG>
+            <h4 class='request-center'>Moet terug op: {{i.endDate}}</h4>
           </ng-template>
+          <ng-template #elseBlockG [ngIf]="i.status === 'waitingForApproval'" else elseBlock>
+            <button mat-raised-button color="warn" (click)='cancelRequest(request)'>Annuleren</button>
+          </ng-template>
+          <ng-template #elseBlock>
+          </ng-template>
+        </div>
+        <div class='cell-three'>
+          <h2 class='status'>
+            {{i.status}}
+          </h2>
+        </div>
       </div>
-      <div class='cell-three'>
-        <h2 class='status'>
-          {{i.status}}
-        </h2>
-      </div>
-    </div>
-  </mat-card>
-</mat-list>
+    </mat-card>
+  </mat-list>
 </div>
 <div *ngIf='items.length === 0'>
-    <mat-card>
-      U heeft geen openstaande vragen.
-    </mat-card>
+  <mat-card>
+    U heeft geen openstaande vragen.
+  </mat-card>
 </div>
