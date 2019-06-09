@@ -2,5 +2,11 @@
   <app-available-items [availableItem]='item'></app-available-items>
 </div>
 
+<div *ngIf='items.length === 0'>
+    <mat-card>
+        Geen items beschikbaar
+    </mat-card>
+</div>
+
 <app-available-items [availableItem]='item1'></app-available-items>
 <app-available-items [availableItem]='item2'></app-available-items>

@@ -22,6 +22,10 @@
     <mat-datepicker #picker2 startView="month"></mat-datepicker>
   </mat-form-field>
 
+  <ng-template [ngIf]="authService.currentUser.role === 'student'">
+      <mat-checkbox>Check me!</mat-checkbox>
+  </ng-template>
+
 </div>
 
 <div class="actions" mat-dialog-actions>
