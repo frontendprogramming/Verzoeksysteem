@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  width:275px;
   background: $background-block;
   border: none;
   box-shadow: $shadow;
@@ -65,6 +65,9 @@
 }
 .selected span:last-child {
   display: initial;
+}
+.selected {
+  // background-color: dodgerblue;
 }
 .log-off-icon {
   right: 25px;

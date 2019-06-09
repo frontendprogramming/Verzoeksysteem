@@ -1,21 +1,34 @@
 import { Routes } from '@angular/router';
-import { StartComponent } from './content/start/start.component';
-import { NextComponent } from './content/next/next.component';
-import { FirebaseLoggedInGuard } from './guards/firebase-logged-in.guard';
+import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-items-list.component';
+import { AvailableItemsListComponent } from './content/available-items-list/available-items-list.component';
+import { IsStudentGuard } from './guards/student.guard';
+import { IsTeacherGuard } from './guards/teacher.guard';
+import { IsAdminGuard } from './guards/admin-guard';
+import { RequestComponent } from './content/request/request.component';
+import { RequestListComponent } from './content/request-list/request-list.component';
 
 export const routes: Routes = [
   {
-    path: 'start',
-    canActivate: [FirebaseLoggedInGuard],
-    component: StartComponent
+    path: 'available',
+    component: AvailableItemsListComponent
   },
   {
-    path: 'next',
-    canActivate: [FirebaseLoggedInGuard],
-    component: NextComponent
+    path: 'requests',
+    canActivate: [IsAdminGuard],
+    component: RequestComponent
+  },
+  {
+    path: 'loaned',
+    canActivate: [IsAdminGuard],
+    component: LoanedItemsListComponent
+  },
+  {
+    path: 'adminrequest',
+    canActivate: [IsAdminGuard],
+    component: RequestListComponent
   },
   {
     path: '**',
-    redirectTo: 'start'
+    redirectTo: 'available'
   }
 ];

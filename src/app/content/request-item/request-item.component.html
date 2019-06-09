@@ -1,0 +1,33 @@
+<mat-card class="margin">
+  <div class='container'>
+    <div class='cell-one'>
+      <p class='title'>
+        {{request.name}}
+      </p>
+      <p>
+        {{request.description}}
+      </p>
+    </div>
+    <div class='cell-two'>
+      <p>
+        {{request.nameOfLoaner}} - van {{request.startDate}} tot {{request.endDate}}
+      </p>
+      <div>
+        <div class='inline-display'>
+          <button mat-button (click)='approveRequest(request)'>Goedkeuren</button>
+        </div>
+        <div class='inline-display'>
+          <button mat-button (click)='declineRequest(request)'>Afkeuren</button>
+        </div>
+      </div>
+
+
+    </div>
+    <div class='cell-three'>
+      <p class='title'>
+        Waiting For Approval
+      </p>
+    </div>
+  </div>
+
+</mat-card>

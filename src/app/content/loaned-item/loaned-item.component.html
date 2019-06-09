@@ -1,0 +1,24 @@
+<mat-card class="margin">
+  <div class='container'>
+    <div class='cell-one'>
+      <p class='title'>
+        {{loanedItem.name}}
+      </p>
+      <p>
+        {{loanedItem.serialNumber}}
+      </p>
+    </div>
+    <div class='cell-two'>
+      <p>
+        geleend door: {{loanedItem.nameOfLoaner}}
+      </p>
+      <p>
+        van {{loanedItem.startDate}} tot {{loanedItem.endDate}}
+      </p>
+    </div>
+    <div class='cell-three'>
+        <button class='returnButton' mat-raised-button color="primary" (click)='returnItem(loanedItem)'>Terug brengen</button>
+    </div>
+  </div>
+
+</mat-card>

@@ -1,0 +1,10 @@
+<div *ngIf='items.length !== 0'>
+    <div *ngFor="let item of items">
+        <app-loaned-item [loanedItem]='item'></app-loaned-item>
+    </div>
+</div>
+<div *ngIf='items.length === 0'>
+    <mat-card>
+        Geen items beschikbaar
+    </mat-card>
+</div>

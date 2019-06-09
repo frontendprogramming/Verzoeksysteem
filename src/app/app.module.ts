@@ -5,11 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StartComponent } from './content/start/start.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
-import { NextComponent } from './content/next/next.component';
+import { RequestComponent } from './content/request/request.component';
 import { LoginComponent } from './content/login/login.component';
 import { AuthorizationService } from './service/authorization.service';
 import { CommonModule } from '@angular/common';
@@ -19,16 +18,32 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { UserProfileSelectListComponent } from './content/user-profile-select-list/user-profile-select-list.component';
+import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-items-list.component';
+import { LoanedItemComponent } from './content/loaned-item/loaned-item.component';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AvailableItemsComponent, DialogComponent } from './content/available-items/available-items.component';
+import { AvailableItemsListComponent } from './content/available-items-list/available-items-list.component';
+import {MatGridListModule} from '@angular/material';
+import { RequestListComponent } from './content/request-list/request-list.component';
+import { RequestItemComponent } from './content/request-item/request-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    StartComponent,
-    NextComponent,
+    RequestComponent,
     LoginComponent,
-    UserProfileSelectListComponent
+    UserProfileSelectListComponent,
+    LoanedItemsListComponent,
+    LoanedItemComponent,
+    AvailableItemsComponent,
+    AvailableItemsListComponent,
+    DialogComponent,
+    RequestItemComponent,
+    RequestListComponent
   ],
   imports: [
     MaterialModule,
+    MatGridListModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -40,12 +55,18 @@ import { UserProfileSelectListComponent } from './content/user-profile-select-li
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireDatabaseModule,
     ReactiveFormsModule
   ],
   providers: [
     RouterModule,
     AuthorizationService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ],
+  entryComponents: [
+    DialogComponent
+  ],
 })
 export class AppModule { }
