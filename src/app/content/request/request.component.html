@@ -24,8 +24,8 @@
   <br>
  
 </mat -grid-list> -->
-
-<mat-list cols=1 *ngFor="let i of contacts">
+<div *ngIf='items.length !== 0'>
+<mat-list cols=1 *ngFor="let i of items">
   <mat-card>
     <div class='container'>
       <div class='cell-one'>
@@ -37,11 +37,11 @@
       </div>
       <div class='cell-two'>
         
-        <ng-template [ngIf]="i.status === 'goedgekeurd'" else elseBlockG>
-          <h4 class='request-center'>{{i.date}}</h4>
+        <ng-template [ngIf]="i.status === 'Approved'" else elseBlockG>
+          <h4 class='request-center'>Moet terug op: {{i.endDate}}</h4>
         </ng-template>
-        <ng-template #elseBlockG [ngIf]="i.status === 'wachtopkeuring'" else elseBlock>
-            <button mat-raised-button color="warn">Annuleren</button>
+        <ng-template #elseBlockG [ngIf]="i.status === 'waitingForApproval'" else elseBlock>
+            <button mat-raised-button color="warn" (click)='cancelRequest(request)'>Annuleren</button>
         </ng-template>
         <ng-template #elseBlock>
           </ng-template>
@@ -54,3 +54,9 @@
     </div>
   </mat-card>
 </mat-list>
+</div>
+<div *ngIf='items.length === 0'>
+    <mat-card>
+      U heeft geen openstaande vragen.
+    </mat-card>
+</div>

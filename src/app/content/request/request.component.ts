@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { ItemsService } from 'src/app/service/item.service';
+import { LoanedItem } from 'src/app/models/loaned-item.model';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { RequestStatus } from 'src/app/models/request-status.model';
 
 @Component({
   selector: 'app-request',
@@ -8,44 +12,25 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class RequestComponent implements OnInit {
 
- 
-  constructor() { 
-    
-  }
+  public items: LoanedItem[] = [];
+  @Output() stateChnge: EventEmitter<boolean> = new EventEmitter();
+  
+  constructor(
+    private itemService: ItemsService) {}
+    private db: AngularFireDatabase
 
   ngOnInit() {
-
+    this.items = this.itemService.myRequests;
   }
-
-  contacts = [
-    {
-      name: "Raspberry pi 3",
-      desc: "Mini computer bebruikt voor veel dingen binnen school",
-      date: "Moet terug op 13-6-2019",
-      status: "goedgekeurd"
-    }, 
-
-    {
-      name: "Raspberry pi 3",
-      desc: "Mini computer bebruikt voor veel dingen binnen school",
-      date: "Moet terug op 13-6-2019",
-      status: "afgekeurd"
-    },
-
-    {
-      name: "Raspberry pi 3",
-      desc: "Mini computer bebruikt voor veel dingen binnen school",
-      date: "Moet terug op 13-6-2019",
-      status: "teruggebracht"
-    },
-
-    {
-      name: "Raspberry pi 3",
-      desc: "Mini computer bebruikt voor veel dingen binnen school",
-      date: "Moet terug op 13-6-2019",
-      status: "wachtopkeuring"
-    },
-  ]
   
-
+  cancelRequest(request: LoanedItem) {
+    this.db.database.ref(`loaned-items/${request.id}`).update({
+      status: RequestStatus.Canceled
+    }, callback => {
+      this.stateChnge.emit(false);
+    });
+  }
+  refreshItems(event) {
+    this.itemService.refreshItems();
+  }
 }

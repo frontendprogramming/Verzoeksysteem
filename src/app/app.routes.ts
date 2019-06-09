@@ -29,11 +29,13 @@ export const routes: Routes = [
   path: 'requests',
   canActivate: [IsAdminGuard],
   component: RequestComponent
-
+  },
+  {
     path: 'adminrequest',
     canActivate: [IsAdminGuard],
     component: RequestListComponent
   },
+  
   {
     path: '**',
     redirectTo: 'start'
