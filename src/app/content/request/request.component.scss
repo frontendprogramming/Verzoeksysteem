@@ -1,0 +1,88 @@
+
+
+        // .item-info > * {
+        //     width: 100%;
+        //     float: left;
+        //     text-align:left;
+        // };
+
+        // .item-action > * {
+        //     width: 100%;
+        //     float: left;
+        //     text-align:left;
+
+        // };
+
+        // .desc > * {
+        //     font-size: 15px;
+        // };
+
+        // .title > * {
+        //     margin-top: 0;
+        // };
+
+        // mat-card {
+        //     width: 90%;
+        // }
+
+        // mat-grid-tile{
+        //     float:left;
+        // }
+
+        .title {
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 10px;
+            text-transform: capitalize;
+          }
+          .cell-one {
+            width: 45%;
+            height: 85px;
+          }
+          .cell-two {
+            width: 25%;
+            height: 85px;
+          }
+
+          .cell-three {
+            width:  30%;
+            height: 85px;
+            
+          }
+          .container {
+            display: flex;
+          }
+          
+          .reserved {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 15px;
+          }
+
+          .status {
+            float: right;       
+          }
+
+          .request-center {
+            top: 50%;
+            font-size:20px;
+          }
+          
+          mat-card {
+            margin: 10px 0;
+            width: 80%;
+          }
+          
+          button {
+            top:50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width:200px;
+            font-size: 20px;
+          }
+          
+          p {
+            margin: 10px;
+            width: 300px;
+          }
+          

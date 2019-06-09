@@ -10,6 +10,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { NextComponent } from './content/next/next.component';
+import { RequestComponent } from './content/request/request.component';
 import { LoginComponent } from './content/login/login.component';
 import { AuthorizationService } from './service/authorization.service';
 import { CommonModule } from '@angular/common';
@@ -22,12 +23,14 @@ import { UserProfileSelectListComponent } from './content/user-profile-select-li
 import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-items-list.component';
 import { LoanedItemComponent } from './content/loaned-item/loaned-item.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import {MatGridListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     NextComponent,
+    RequestComponent,
     LoginComponent,
     UserProfileSelectListComponent,
     LoanedItemsListComponent,
@@ -35,6 +38,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   ],
   imports: [
     MaterialModule,
+    MatGridListModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
