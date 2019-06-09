@@ -12,7 +12,8 @@
         <div class='cell-two'>
 
           <ng-template [ngIf]="i.status === 'Approved'" else elseBlockG>
-            <h4 class='request-center'>Moet terug op: {{i.endDate}}</h4>
+            <h4 class='request-center'>Moet terug op:</h4>
+            <p>{{i.endDate}}</p>
           </ng-template>
           <ng-template #elseBlockG [ngIf]="i.status === 'waitingForApproval'" else elseBlock>
             <button mat-raised-button color="warn" (click)='cancelRequest(i)'>Annuleren</button>
