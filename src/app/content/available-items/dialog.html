@@ -6,7 +6,7 @@
   <p>{{data.item.name}}</p>
 
   <p class="label">Omschrijving</p>
-  <p>{{data.item.description}}</p>
+  <p>{{data.item.desc}}</p>
 
   <p class="label">Start datum</p>
   <mat-form-field>
@@ -23,7 +23,7 @@
   </mat-form-field>
 
   <ng-template [ngIf]="authService.currentUser.role === 'student'">
-      <mat-checkbox>Check me!</mat-checkbox>
+      <!-- <mat-checkbox>Check me!</mat-checkbox> -->
   </ng-template>
 
 </div>

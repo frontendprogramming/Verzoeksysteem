@@ -3,6 +3,9 @@ import { AvailableItem } from 'src/app/models/available-item.model';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl } from '@angular/forms';
 import { AuthorizationService } from '../../service/authorization.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { RequestStatus } from 'src/app/models/request-status.model';
+import { ItemsService } from 'src/app/service/item.service';
 
 @Component({
   selector: 'app-dialog',
@@ -21,7 +24,7 @@ export class DialogComponent {
     public dialogRef: MatDialogRef<DialogComponent>,
     public authService: AuthorizationService,
     @Inject(MAT_DIALOG_DATA) public data: AvailableItem) {
-      this.startDate.controls = this.authService.currentUser.role === 'student';
+    this.startDate.controls = this.authService.currentUser.role === 'student';
   }
 
   cancel(): void {
@@ -42,7 +45,8 @@ export class DialogComponent {
 export class AvailableItemsComponent implements OnInit {
   @Input() availableItem: AvailableItem;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private db: AngularFireDatabase, public authService: AuthorizationService,
+              public itemService: ItemsService) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -51,8 +55,16 @@ export class AvailableItemsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
+      console.log(result);
+      this.db.database.ref(`items/${result.id}`).update({
+        status: RequestStatus.waitingForApproval,
+        startDate: result.startDate,
+        endDate: result.endDate,
+        // nameOfLoaner: this.authService.currentUser.name;
+        userRef: this.authService.currentUser.firebaseUser.uid,
+      }, callback => {
+        this.itemService.refreshItems();
+      });
     });
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AvailableItemsService } from 'src/app/service/available-items.service';
-import { AvailableItem } from '../../models/available-item.model';
+import { ItemsService } from 'src/app/service/item.service';
+import { Item } from 'src/app/models/item.model';
 
 
 @Component({
@@ -8,25 +8,12 @@ import { AvailableItem } from '../../models/available-item.model';
   templateUrl: './available-items-list.component.html',
   styleUrls: ['./available-items-list.component.scss']
 })
-export class AvailableItemsListComponent implements OnInit {
-  public items: AvailableItem[] = [];
+export class AvailableItemsListComponent {
+  public items: Item[] = [];
 
-  public item1: AvailableItem = {
-    name: 'item1',
-    description: 'omschrijbienjgvahjdsb dsg dsg d fg sd g',
-    status: 'bescchikbaar',
-  };
-
-  public item2: AvailableItem = {
-    name: 'item2',
-    description: 'omschrijbienjgvahjdsb dsg dsg d fg sd g',
-    status: 'gereserveerd',
+  constructor(
+    private itemService: ItemsService
+  ) {
+    this.items = this.itemService.availiableItems;
   }
-
-  constructor(private itemService: AvailableItemsService) {}
-
-  ngOnInit() {
-    this.items = this.itemService.availableItems;
-  }
-
 }

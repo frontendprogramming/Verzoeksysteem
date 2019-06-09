@@ -3,12 +3,12 @@
     <div class='cell-one'>
       <p class='title'>
         {{availableItem.name}} <span
-          class="reserved">{{availableItem.status === "gereserveerd" ? availableItem.status : ''}}</span>
+          class="reserved">{{availableItem.status === "Reserved" ? availableItem.status : ''}}</span>
       </p>
       <p>
-        {{availableItem.description}}
+        {{availableItem.desc}}
       </p>
     </div>
-    <button mat-flat-button color="primary" (click)="openDialog()" [disabled]="availableItem.status === 'gereserveerd'">Aanvragen</button>
+    <button mat-flat-button color="primary" (click)="openDialog()" [disabled]="availableItem.status === 'Reserved'">Aanvragen</button>
   </div>
 </mat-card>

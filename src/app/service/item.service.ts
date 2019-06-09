@@ -21,10 +21,12 @@ export class ItemsService {
   ) {
     this.refreshItems();
   }
-  refreshItems() {
+
+  public refreshItems() {
     this.loanedItems = [];
     this.waitingRequests = [];
     this.allLoanedItems = [];
+    this.availiableItems = [];
 
     this.db.database.ref('items').once('value').then(data => {
       data = data.val();
@@ -36,6 +38,9 @@ export class ItemsService {
           }
           if (data[docId]['status'] === RequestStatus.waitingForApproval) {
             this.waitingRequests.push(data[docId]);
+          }
+          if (data[docId]['status'] === RequestStatus.Available || data[docId]['status'] === RequestStatus.Reserved) {
+            this.availiableItems.push(data[docId]);
           }
           if (data[docId]['userRef'] === this.authService.currentUser.firebaseUser.uid) {
             this.myRequests.push(data[docId])
