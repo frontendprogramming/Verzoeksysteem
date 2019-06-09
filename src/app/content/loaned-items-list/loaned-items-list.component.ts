@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoanedItemsService } from 'src/app/service/loaned-items.service';
 import { LoanedItem } from 'src/app/models/loaned-item.model';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import { ItemsService } from 'src/app/service/item.service';
 
 @Component({
   selector: 'app-loaned-items-list',
@@ -10,14 +9,14 @@ import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 })
 export class LoanedItemsListComponent implements OnInit {
 
-  public items: LoanedItem[] = [];
+  public items: LoanedItem[];
   constructor(
-    private itemService: LoanedItemsService
+    private itemService: ItemsService
   ) {
+    this.items = this.itemService.loanedItems;
+
   }
 
   ngOnInit() {
-    this.items = this.itemService.loanedItems;
   }
-
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoanedItem } from 'src/app/models/loaned-item.model';
+import { ItemsService } from 'src/app/service/item.service';
 
 @Component({
   selector: 'app-request-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestListComponent implements OnInit {
 
-  constructor() { }
+  public items: LoanedItem[] = [];
+
+  constructor(
+    private itemService: ItemsService
+  ) { }
 
   ngOnInit() {
+    this.items = this.itemService.waitingRequests;
+  }
+  refreshItems(event) {
+    this.itemService.refreshItems();
   }
 
 }

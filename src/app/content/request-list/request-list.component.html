@@ -1,3 +1,11 @@
-<p>
-  request-list works!
-</p>
+
+<div *ngIf='items.length !== 0'>
+    <div *ngFor="let item of items ">
+        <app-request-item (stateChnge)="refreshItems($event)" [request]='item'></app-request-item>
+    </div>
+</div>
+<div *ngIf='items.length === 0'>
+    <mat-card>
+      Niks hier
+    </mat-card>
+</div>
