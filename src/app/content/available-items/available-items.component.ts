@@ -55,16 +55,17 @@ export class AvailableItemsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      this.db.database.ref(`items/${result.id}`).update({
-        status: RequestStatus.waitingForApproval,
-        startDate: result.startDate,
-        endDate: result.endDate,
-        // nameOfLoaner: this.authService.currentUser.name;
-        userRef: this.authService.currentUser.firebaseUser.uid,
-      }, callback => {
-        this.itemService.refreshItems();
-      });
+      if (result) {
+        this.db.database.ref(`items/${result.id}`).update({
+          status: RequestStatus.waitingForApproval,
+          startDate: result.startDate,
+          endDate: result.endDate,
+          // nameOfLoaner: this.authService.currentUser.name;
+          userRef: this.authService.currentUser.firebaseUser.uid,
+        }, callback => {
+          this.itemService.refreshItems();
+        });
+      }
     });
   }
 

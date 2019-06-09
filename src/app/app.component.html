@@ -17,7 +17,7 @@
 
       <mat-list>
 
-        <ng-template *ngFor="let route of routes">
+        <div *ngFor="let route of routes">
           <mat-list-item *ngIf="isVisible(route.role)" [routerLinkActive]="'selected'" [routerLink]="route.routerLink" class="list-item">
             <div class="menu-item">
               <span class="mat-button-wrapper">
@@ -27,7 +27,7 @@
               <span class="dot"></span>
             </div>
           </mat-list-item>
-        </ng-template>
+        </div>
 
       </mat-list>
 
