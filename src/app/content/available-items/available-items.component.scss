@@ -1,0 +1,36 @@
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+.cell-one {
+  width: 20%;
+}
+.cell-two {
+  width: 60%;
+}
+.container {
+  display: flex;
+}
+
+.reserved {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 15px;
+}
+
+mat-card {
+  margin: 10px 0;
+}
+
+button {
+  position: absolute;
+  right: 20px;
+  top: 35px;
+}
+
+p {
+  margin: 10px;
+  width: 300px;
+}

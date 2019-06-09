@@ -11,23 +11,14 @@ export class AppComponent implements OnInit {
 
   routes = [
     {
-      name: 'Start',
-      routerLink: 'start',
-      icon: 'home',
-      role: 'student'
+      name: 'Beschikbare items',
+      routerLink: 'available',
+      icon: 'local_offer'
     },
-
     {
-      name: 'Requests',
+      name: 'Verzoeken',
       routerLink: 'requests',
       icon: 'ballot'
-    },
-
-    {
-      name: 'next',
-      routerLink: 'next',
-      icon: 'android',
-      role: 'docent'
     },
     {
       name: 'uitgeleende items',
