@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoanedItemsService } from './loaned-items.service';
+import { ItemService } from './item.service';
 
-describe('LoanedItemsService', () => {
+describe('ItemService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: LoanedItemsService = TestBed.get(LoanedItemsService);
+    const service: ItemService = TestBed.get(ItemService);
     expect(service).toBeTruthy();
   });
 });

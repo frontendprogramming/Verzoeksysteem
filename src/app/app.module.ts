@@ -22,6 +22,8 @@ import { UserProfileSelectListComponent } from './content/user-profile-select-li
 import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-items-list.component';
 import { LoanedItemComponent } from './content/loaned-item/loaned-item.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { RequestListComponent } from './content/request-list/request-list.component';
+import { RequestItemComponent } from './content/request-item/request-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     LoginComponent,
     UserProfileSelectListComponent,
     LoanedItemsListComponent,
-    LoanedItemComponent
+    LoanedItemComponent,
+    RequestItemComponent,
+    RequestListComponent
   ],
   imports: [
     MaterialModule,

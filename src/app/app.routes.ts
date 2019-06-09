@@ -5,6 +5,7 @@ import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-ite
 import { IsStudentGuard } from './guards/student.guard';
 import { IsTeacherGuard } from './guards/teacher.guard';
 import { IsAdminGuard } from './guards/admin-guard';
+import { RequestListComponent } from './content/request-list/request-list.component';
 
 export const routes: Routes = [
   {
@@ -19,8 +20,14 @@ export const routes: Routes = [
   },
   {
     path: 'loaned',
+    // TODO: only admin should have access.
     canActivate: [IsAdminGuard],
     component: LoanedItemsListComponent
+  },
+  {
+    path: 'adminrequest',
+    canActivate: [IsAdminGuard],
+    component: RequestListComponent
   },
   {
     path: '**',
