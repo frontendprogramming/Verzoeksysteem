@@ -1,0 +1,20 @@
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.cell-one {
+    width:40%;
+}
+.cell-two {
+    width:40%;
+}
+.cell-three {
+    width: 20%;
+}
+.container {
+    display: flex
+}
+.inline-display {
+    display: inline;
+}

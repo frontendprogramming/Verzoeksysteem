@@ -24,6 +24,8 @@ import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-ite
 import { LoanedItemComponent } from './content/loaned-item/loaned-item.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {MatGridListModule} from '@angular/material';
+import { RequestListComponent } from './content/request-list/request-list.component';
+import { RequestItemComponent } from './content/request-item/request-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {MatGridListModule} from '@angular/material';
     LoginComponent,
     UserProfileSelectListComponent,
     LoanedItemsListComponent,
-    LoanedItemComponent
+    LoanedItemComponent,
+    RequestItemComponent,
+    RequestListComponent
   ],
   imports: [
     MaterialModule,
