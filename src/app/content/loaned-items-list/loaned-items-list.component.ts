@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoanedItem } from 'src/app/models/loaned-item.model';
-import { ItemService } from 'src/app/service/item.service';
+import { ItemsService } from 'src/app/service/item.service';
 
 @Component({
   selector: 'app-loaned-items-list',
@@ -9,14 +9,14 @@ import { ItemService } from 'src/app/service/item.service';
 })
 export class LoanedItemsListComponent implements OnInit {
 
-  public items: LoanedItem[] = [];
+  public items: LoanedItem[];
   constructor(
-    private itemService: ItemService
+    private itemService: ItemsService
   ) {
+    this.items = this.itemService.loanedItems;
+
   }
 
   ngOnInit() {
-    this.items = this.itemService.LoanedItems;
   }
-
 }
