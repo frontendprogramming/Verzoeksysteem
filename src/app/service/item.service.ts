@@ -37,7 +37,7 @@ export class ItemsService {
           if (data[docId]['status'] === RequestStatus.waitingForApproval) {
             this.waitingRequests.push(data[docId]);
           }
-          if (data[docId]['userRef'] === this.authService.currentUser.firebaseUser.uid) {
+          if (data[docId]['userRef'] === this.authService.currentUser.firebaseUser.uid && data[docId]['status'] !== 'Available') {
             this.myRequests.push(data[docId])
           }
           this.allLoanedItems.push(data[docId]);
