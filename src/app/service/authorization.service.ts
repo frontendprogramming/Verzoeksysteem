@@ -27,6 +27,7 @@ export class AuthorizationService {
         this.user.firebaseUser = user;
         this.db.database.ref(`users/${this.user.firebaseUser.uid}`).once('value').then(data => {
           this.user.role =  data.val().role;
+          this.user.name = data.val().name;
         });
       }
     });
@@ -69,7 +70,8 @@ export class AuthorizationService {
         .then(res => {
           // set creates a document at location 'users/:id' with the object specified below.
           this.db.database.ref(`users/${res.user.uid}`).set({
-            role: 'student'
+            role: 'student',
+            name: value.name
           });
           resolve(res);
           this.toastrService.success('Succes!');
