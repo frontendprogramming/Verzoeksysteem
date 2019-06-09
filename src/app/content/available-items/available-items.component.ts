@@ -45,8 +45,19 @@ export class DialogComponent {
 export class AvailableItemsComponent implements OnInit {
   @Input() availableItem: AvailableItem;
 
-  constructor(public dialog: MatDialog, private db: AngularFireDatabase, public authService: AuthorizationService,
-              public itemService: ItemsService) { }
+  constructor(
+    public dialog: MatDialog,
+    private db: AngularFireDatabase,
+    public authService: AuthorizationService,
+    public itemService: ItemsService) { }
+
+  public formatDate(date: any): string {
+    const day = date.getDate();
+    const monthIndex = date.getMonth();
+    const year = date.getFullYear();
+
+    return day + '-' + (monthIndex + 1) + '-' + year;
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -56,11 +67,11 @@ export class AvailableItemsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.db.database.ref(`items/${result.id}`).update({
+        this.db.database.ref(`items/${result[0].id}`).update({
           status: RequestStatus.waitingForApproval,
-          startDate: result.startDate,
-          endDate: result.endDate,
-          // nameOfLoaner: this.authService.currentUser.name;
+          startDate: this.formatDate(result[1].value),
+          endDate: this.formatDate(result[2].value),
+          nameOfLoaner: this.authService.currentUser.name,
           userRef: this.authService.currentUser.firebaseUser.uid,
         }, callback => {
           this.itemService.refreshItems();
@@ -68,6 +79,8 @@ export class AvailableItemsComponent implements OnInit {
       }
     });
   }
+
+
 
   ngOnInit() {
   }
