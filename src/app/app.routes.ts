@@ -4,21 +4,27 @@ import { AvailableItemsListComponent } from './content/available-items-list/avai
 import { IsStudentGuard } from './guards/student.guard';
 import { IsTeacherGuard } from './guards/teacher.guard';
 import { IsAdminGuard } from './guards/admin-guard';
+import { RequestComponent } from './content/request/request.component';
 import { RequestListComponent } from './content/request-list/request-list.component';
 
 export const routes: Routes = [
-  {
-    path: 'loaned',
-    // canActivate: [IsAdminGuard],
-    component: LoanedItemsListComponent
-  },
   {
     path: 'available',
     component: AvailableItemsListComponent
   },
   {
+    path: 'requests',
+    canActivate: [IsAdminGuard],
+    component: RequestComponent
+  },
+  {
+    path: 'loaned',
+    canActivate: [IsAdminGuard],
+    component: LoanedItemsListComponent
+  },
+  {
     path: 'adminrequest',
-    // canActivate: [IsAdminGuard],
+    canActivate: [IsAdminGuard],
     component: RequestListComponent
   },
   {

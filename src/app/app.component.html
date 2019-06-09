@@ -14,16 +14,21 @@
 
   <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+
       <mat-list>
-        <mat-list-item [routerLinkActive]="'selected'" [routerLink]="route.routerLink" class="list-item" *ngFor="let route of routes">
-          <div class="menu-item">
-            <span class="mat-button-wrapper">
-              <mat-icon class="menu-item-icon">{{ route.icon }}</mat-icon>
-            </span>
-            <p class="menu-item-text">{{ route.name }}</p>
-            <span class="dot"></span>
-          </div>
-        </mat-list-item>
+
+        <ng-template *ngFor="let route of routes">
+          <mat-list-item *ngIf="isVisible(route.role)" [routerLinkActive]="'selected'" [routerLink]="route.routerLink" class="list-item">
+            <div class="menu-item">
+              <span class="mat-button-wrapper">
+                <mat-icon class="menu-item-icon">{{ route.icon }}</mat-icon>
+              </span>
+              <p class="menu-item-text">{{ route.name }}</p>
+              <span class="dot"></span>
+            </div>
+          </mat-list-item>
+        </ng-template>
+
       </mat-list>
 
 

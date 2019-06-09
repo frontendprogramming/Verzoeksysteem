@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
+import { RequestComponent } from './content/request/request.component';
 import { LoginComponent } from './content/login/login.component';
 import { AuthorizationService } from './service/authorization.service';
 import { CommonModule } from '@angular/common';
@@ -22,12 +23,14 @@ import { LoanedItemComponent } from './content/loaned-item/loaned-item.component
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AvailableItemsComponent, DialogComponent } from './content/available-items/available-items.component';
 import { AvailableItemsListComponent } from './content/available-items-list/available-items-list.component';
+import {MatGridListModule} from '@angular/material';
 import { RequestListComponent } from './content/request-list/request-list.component';
 import { RequestItemComponent } from './content/request-item/request-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RequestComponent,
     LoginComponent,
     UserProfileSelectListComponent,
     LoanedItemsListComponent,
@@ -40,6 +43,7 @@ import { RequestItemComponent } from './content/request-item/request-item.compon
   ],
   imports: [
     MaterialModule,
+    MatGridListModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,

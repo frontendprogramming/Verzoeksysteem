@@ -7,11 +7,23 @@
     width:20%;
 }
 .cell-two {
-    width:60%;
+    width:50%;
+}
+
+.cell-three {
+    width:30%;
 }
 .container {
     display: flex;
 }
 .margin {
   margin: 10px 0;
+}
+.returnButton {
+  top:50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width:200px;
+  font-size: 20px;
+  float: right;
 }
