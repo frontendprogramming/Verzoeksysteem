@@ -14,9 +14,11 @@ export class UserProfileSelectListComponent implements OnInit {
 
   ngOnInit() {
   }
+
   logOff() {
     this.authService.logout();
   }
+
   getUserName() {
     if (this.authService.currentUser.name) {
       return this.authService.currentUser.name;
