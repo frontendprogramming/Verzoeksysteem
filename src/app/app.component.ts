@@ -21,6 +21,11 @@ export class AppComponent implements OnInit {
       routerLink: 'loaned',
       icon: 'calendar_today'
     },
+    {
+      name: 'aanvragen',
+      routerLink: 'adminrequest',
+      icon: 'record_voice_over'
+    }
   ];
   public constructor(
     private authService: AuthorizationService

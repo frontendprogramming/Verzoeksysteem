@@ -22,6 +22,8 @@ import { LoanedItemComponent } from './content/loaned-item/loaned-item.component
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AvailableItemsComponent, DialogComponent } from './content/available-items/available-items.component';
 import { AvailableItemsListComponent } from './content/available-items-list/available-items-list.component';
+import { RequestListComponent } from './content/request-list/request-list.component';
+import { RequestItemComponent } from './content/request-item/request-item.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AvailableItemsListComponent } from './content/available-items-list/avai
     AvailableItemsComponent,
     AvailableItemsListComponent,
     DialogComponent,
+    RequestItemComponent,
+    RequestListComponent
   ],
   imports: [
     MaterialModule,

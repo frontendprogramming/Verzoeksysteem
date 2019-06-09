@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { AvailableItem } from 'src/app/models/available-item.model';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl } from '@angular/forms';
+import { AuthorizationService } from '../../service/authorization.service';
 
 @Component({
   selector: 'app-dialog',
@@ -15,9 +16,12 @@ export class DialogComponent {
   public endDate: any = new FormControl(new Date());
   public maxDate: any = new FormControl(new Date());
 
+
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
+    public authService: AuthorizationService,
     @Inject(MAT_DIALOG_DATA) public data: AvailableItem) {
+      this.startDate.controls = this.authService.currentUser.role === 'student';
   }
 
   cancel(): void {
@@ -48,7 +52,7 @@ export class AvailableItemsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      //this.animal = result;
+      // this.animal = result;
     });
   }
 
