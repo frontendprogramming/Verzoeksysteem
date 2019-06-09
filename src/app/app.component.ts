@@ -13,18 +13,20 @@ export class AppComponent implements OnInit {
     {
       name: 'Beschikbare items',
       routerLink: 'available',
-      icon: 'local_offer'
+      icon: 'local_offer',
+      role: 'student'
     },
     {
       name: 'Verzoeken',
       routerLink: 'requests',
-      icon: 'ballot'
+      icon: 'ballot',
+      role: 'student'
     },
     {
       name: 'uitgeleende items',
       routerLink: 'loaned',
       icon: 'calendar_today',
-      role: 'student'
+      role: 'beheerder'
     },
     {
       name: 'aanvragen',
