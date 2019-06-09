@@ -1,0 +1,14 @@
+<mat-card>
+  <div class='container'>
+    <div class='cell-one'>
+      <p class='title'>
+        {{availableItem.name}} <span
+          class="reserved">{{availableItem.status === "gereserveerd" ? availableItem.status : ''}}</span>
+      </p>
+      <p>
+        {{availableItem.description}}
+      </p>
+    </div>
+    <button mat-flat-button color="primary" (click)="openDialog()" [disabled]="availableItem.status === 'gereserveerd'">Aanvragen</button>
+  </div>
+</mat-card>
