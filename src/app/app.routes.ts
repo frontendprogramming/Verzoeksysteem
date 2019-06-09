@@ -10,11 +10,12 @@ import { RequestListComponent } from './content/request-list/request-list.compon
 export const routes: Routes = [
   {
     path: 'available',
+    canActivate: [IsStudentGuard],
     component: AvailableItemsListComponent
   },
   {
     path: 'requests',
-    canActivate: [IsAdminGuard],
+    canActivate: [IsStudentGuard],
     component: RequestComponent
   },
   {

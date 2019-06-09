@@ -23,6 +23,7 @@
   </mat-form-field>
 
   <ng-template [ngIf]="authService.currentUser.role === 'student'">
+      <!-- voor reserveren hier maken -->
       <!-- <mat-checkbox>Check me!</mat-checkbox> -->
   </ng-template>
 
@@ -30,5 +31,5 @@
 
 <div class="actions" mat-dialog-actions>
   <button mat-button (click)="cancel()">Annuleren</button>
-  <button mat-button [mat-dialog-close]="data.item" cdkFocusInitial>Aanvragen</button>
+  <button mat-button [mat-dialog-close]="[data.item, endDate, startDate]" cdkFocusInitial>Aanvragen</button>
 </div>
