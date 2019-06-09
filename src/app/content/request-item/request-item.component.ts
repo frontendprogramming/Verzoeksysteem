@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { LoanedItem } from 'src/app/models/loaned-item.model';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { RequestStatus } from 'src/app/models/request-status.model';
+import { Item } from 'src/app/models/item.model';
 
 @Component({
   selector: 'app-request-item',
@@ -10,7 +10,7 @@ import { RequestStatus } from 'src/app/models/request-status.model';
 })
 export class RequestItemComponent implements OnInit {
 
-  @Input() request: LoanedItem;
+  @Input() request: Item;
   @Output() stateChnge: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private db: AngularFireDatabase
@@ -18,7 +18,7 @@ export class RequestItemComponent implements OnInit {
 
   ngOnInit() {
   }
-  approveRequest(request: LoanedItem) {
+  approveRequest(request: Item) {
     this.db.database.ref(`loaned-items/${request.id}`).update({
       status: RequestStatus.Approved
     }, callback => {
@@ -26,9 +26,9 @@ export class RequestItemComponent implements OnInit {
     });
 
   }
-  declineRequest(request: LoanedItem) {
+  declineRequest(request: Item) {
     this.db.database.ref(`loaned-items/${request.id}`).update({
-      status: RequestStatus.Rejected
+      status: RequestStatus.Available
     }, callback => {
       this.stateChnge.emit(false);
     });
