@@ -12,6 +12,7 @@ export class IsTeacherGuard implements CanActivate {
     ) {
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+
         if (this.authService.currentUser && (this.authService.currentUser.role === 'docent' ||
             this.authService.currentUser.role === 'beheerder')) {
             return true;

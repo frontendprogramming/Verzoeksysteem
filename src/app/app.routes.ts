@@ -25,7 +25,7 @@ export const routes: Routes = [
     component: LoanedItemsListComponent
   },
   {
-    path: 'request',
+    path: 'adminrequest',
     canActivate: [IsAdminGuard],
     component: RequestListComponent
   },

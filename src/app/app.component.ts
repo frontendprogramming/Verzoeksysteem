@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     },
     {
       name: 'aanvragen',
-      routerLink: 'request',
+      routerLink: 'adminrequest',
       icon: 'record_voice_over'
     }
   ];

@@ -5,4 +5,6 @@ export class LoanedItem {
     startDate: string;
     endDate: string;
     serialNumber?: string;
+    desc: string;
+    userRef: string;
 }
