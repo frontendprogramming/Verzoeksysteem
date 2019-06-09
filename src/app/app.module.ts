@@ -10,6 +10,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { NextComponent } from './content/next/next.component';
+import { RequestComponent } from './content/request/request.component';
 import { LoginComponent } from './content/login/login.component';
 import { AuthorizationService } from './service/authorization.service';
 import { CommonModule } from '@angular/common';
@@ -22,6 +23,7 @@ import { UserProfileSelectListComponent } from './content/user-profile-select-li
 import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-items-list.component';
 import { LoanedItemComponent } from './content/loaned-item/loaned-item.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import {MatGridListModule} from '@angular/material';
 import { RequestListComponent } from './content/request-list/request-list.component';
 import { RequestItemComponent } from './content/request-item/request-item.component';
 
@@ -30,6 +32,7 @@ import { RequestItemComponent } from './content/request-item/request-item.compon
     AppComponent,
     StartComponent,
     NextComponent,
+    RequestComponent,
     LoginComponent,
     UserProfileSelectListComponent,
     LoanedItemsListComponent,
@@ -39,6 +42,7 @@ import { RequestItemComponent } from './content/request-item/request-item.compon
   ],
   imports: [
     MaterialModule,
+    MatGridListModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,

@@ -9,7 +9,6 @@ import { Subject } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
-
   routes = [
     {
       name: 'Start',
@@ -17,6 +16,13 @@ export class AppComponent implements OnInit {
       icon: 'home',
       role: 'student'
     },
+
+    {
+      name: 'Requests',
+      routerLink: 'requests',
+      icon: 'ballot'
+    },
+
     {
       name: 'next',
       routerLink: 'next',

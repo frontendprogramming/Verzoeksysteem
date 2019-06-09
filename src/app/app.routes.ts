@@ -5,6 +5,7 @@ import { LoanedItemsListComponent } from './content/loaned-items-list/loaned-ite
 import { IsStudentGuard } from './guards/student.guard';
 import { IsTeacherGuard } from './guards/teacher.guard';
 import { IsAdminGuard } from './guards/admin-guard';
+import { RequestComponent } from './content/request/request.component';
 import { RequestListComponent } from './content/request-list/request-list.component';
 
 export const routes: Routes = [
@@ -25,10 +26,16 @@ export const routes: Routes = [
     component: LoanedItemsListComponent
   },
   {
+  path: 'requests',
+  canActivate: [IsAdminGuard],
+  component: RequestComponent
+  },
+  {
     path: 'adminrequest',
     canActivate: [IsAdminGuard],
     component: RequestListComponent
   },
+  
   {
     path: '**',
     redirectTo: 'start'

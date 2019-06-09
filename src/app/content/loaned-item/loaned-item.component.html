@@ -16,6 +16,9 @@
         van {{loanedItem.startDate}} tot {{loanedItem.endDate}}
       </p>
     </div>
+    <div class='cell-three'>
+        <button class='returnButton' mat-raised-button color="primary" (click)='returnItem(loanedItem)'>Terug brengen</button>
+    </div>
   </div>
 
 </mat-card>
